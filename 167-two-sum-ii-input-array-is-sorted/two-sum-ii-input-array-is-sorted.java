@@ -4,15 +4,15 @@ class Solution {
         int left = 0;
         int right = numbers.length-1;
         //Condition to avoid overlap
-        while(left < right) {
+        while(left <= right) {
             int sum = numbers[left] + numbers[right];
-            if(sum < target)
-                left++;
+            if(sum == target)
+                return new int[]{left+1, right+1};
             else if(sum > target) 
                 right--;
             else
-                return new int[]{left+1, right+1};
+                left++;
         }
-        return new int[0];
+        return new int[]{0,0};
     }
 }
